@@ -103,7 +103,7 @@ function estimationAmountErrors() {
     const n = errors.length;
     for (let i = 0; i < n; i++) {
         s += errors[i];
-        nu += Math.abs(s) + Math.abs(errors[i]);
+        nu += Math.abs(s);
     }
     nu *= u
     nu /= (1 - (n + 1) * u)
