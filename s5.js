@@ -48,6 +48,7 @@ function calcScalarAndErrorEstimate(elementsVector, coefficientVector) {
     nu /= (1 - (2 * (n) + 1) * u) //Оценка погрешности от оценки погрешности вычислений
 
     return [s, nu];
+
 }
 
 //Функция вычисления модуля скалярного произведения и погрешности вычислений
@@ -68,7 +69,7 @@ function calcModulScalarAndErrorEstimate(elementsVector, coefficientVector) {
     }
     nuModul *= u
     nuModul /= (1 - (2 * (n) + 1) * u)
-    cx = (s1 + nuModul) * gamma(n) // |cx - c^x^|
+    cx = (s1 + nuModul) * gamma((4 * n) - 2) // |cx - c^x^|
 
     return cx;
 }
@@ -116,7 +117,5 @@ console.log("P/4 = ", sumAlphaBeta);
 
 //Cуммарная ошибка и оценка ошибки
 const errors = [alpha[1], alphaSumError, lastAlphaElementErr, beta[1], betaSumError, lastBetaElementErr];
-const estimationAmountErrors1 = estimationAmountErrors();
+const estimationAmountErrors1 = (estimationAmountErrors()[0] + estimationAmountErrors()[1]) / (1 - 2 * u);
 console.log(estimationAmountErrors1)
-
-
